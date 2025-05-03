@@ -8,7 +8,7 @@ from telegram import Update, InputMediaPhoto, InlineKeyboardButton, InlineKeyboa
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
 
 # Updated credentials
-TOKEN = "6838193855:AAGhNSJh924srwe04vfxdlVMCb5AManDiek"
+TOKEN = "6838193855:AAFl6-Mke4I5uXP5IpRH659VRUGa_VJTQIA"
 ADMIN_IDS = ["1786683163", "6512242172"]
 GROUP_ID = "-1002421909799"
 
@@ -22,9 +22,9 @@ active_attacks = []
 user_cooldowns = {}
 attack_limits = {}
 
-MAX_CONCURRENT_ATTACKS = 3
+MAX_CONCURRENT_ATTACKS = 2
 ATTACK_COOLDOWN = 400
-MAX_ATTACK_DURATION = 200
+MAX_ATTACK_DURATION = 180
 DEFAULT_DAILY_LIMIT = 10
 
 ATTACK_IMAGES = [
